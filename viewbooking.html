@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking - View Booking</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td:last-child {
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0062cc;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+         .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+
+            .btn-back {
+
+        margin-top: 20px;
+        margin-left:1250px;
+        text-align: right;
+        background-color: black;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .btn-back:hover {
+        background-color: #0056b3;
+    }
+
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('booknow') }}">BookNow</a></li>
+        <li><a href="{{ url_for('viewbooking') }}">ViewYourBooking</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</nav>
+<div class="container">
+<h1>Booking Details</h1>
+{% if customers %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Adhar</th>
+        <th>Address</th>
+        <th>Date</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Action</th>
+    </tr>
+    {% for customer in customers %}
+    <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.adhar }}</td>
+        <td>{{ customer.address }}</td>
+        <td>{{ customer.date }}</td>
+        <td>{{ customer.gender }}</td>
+        <td>{{ customer.age }}</td>
+        <td>{{ customer.city }}</td>
+        <td>
+           <td>
+                <td>
+                <a href="{{ url_for('edit_customer', id=customer.id) }}" class="btn">Edit</a>
+                <form action="{{ url_for('delete_customer', id=customer.id) }}" method="post" onsubmit="return confirmDelete()">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No customers found. <a href="{{ url_for('booknow') }}" class="btn">Book Hotel Now</a></p>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="btn btn-back">Back</a>
+</div>
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this entry?");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Hotel Booking - Book Now</title>
+
+  <style>
+
+  body{
+    text-align:center;
+    margin-top:80px;
+    background-color:gray;
+    margin-bottom:200px;
+
+  }
+    label {
+      display: inline-block;
+      background-color: green;
+      padding:6px;
+      width: 100px;
+      heigth: 100px;
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 200px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      align:center;
+      padding: 12px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+        .btn-back {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .btn-back:hover {
+         background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('booknow') }}">BookNow</a></li>
+    <li><a href="{{ url_for('viewbooking') }}">ViewYourBooking</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+  </ul>
+</nav>
+
+  <h1>Book Room In Your Budget</h1><br><br>
+  <form action="{{ url_for('booknow') }}" method="post">
+
+     {% if success_message %}
+        <div class="success-message">{{ success_message }}</div>
+        <div class="options">
+            <a href="{{ url_for('home') }}" class="option">Home</a>
+            <a href="{{ url_for('viewbooking') }}" class="option">View Booking</a>
+
+        </div>
+    {% else %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+
+    <label for="adhar">Adhar Number:</label>
+    <input type="number" id="adhar" name="adhar" required placeholder="Enter 12 digit adhar number" min="100000000000" max="999999999999"><br><br>
+
+     <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+
+    <label for="room">Room:</label>
+    <input type="room" id="room" name="room"><br><br>
+
+    <label for="gender">Gender:</label>
+    <input type="text" id="gender" name="gender"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="1" max="150"><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city"><br><br>
+
+    <input type="submit" value="BookNow">
+
+      <a href="{{ url_for('home') }}" class="btn btn-back">Back</a>
+  </form>
+ {% endif %}
+
+
+</body>
+</html>

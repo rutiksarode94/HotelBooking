@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Booking</title>
+  <style>
+
+
+    header {
+      background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      position: relative;
+    }
+
+    .header-content {
+      text-align: right;
+      color:white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .footer-content {
+      text-align: center;
+
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-container {
+     position: absolute;
+      top: 40px;
+      left: 250px;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 50px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+
+
+<header>
+  <div class="header-content">
+    <h1>"When you get into a hotel room,<br>
+      you lock the door, and you know there <br>
+      is a secrecy, there is a luxury,<br>
+      there is fantasy. There is comfort.<br>
+      There is reassurance."</h1>
+    <nav>
+  <ul>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('booknow') }}">BookNow</a></li>
+    <li><a href="{{ url_for('viewbooking') }}">ViewYourBooking</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+  </ul>
+</nav>
+
+  </div>
+</header>
+
+  </main>
+
+
+  <footer>
+    <div class="footer-content"></div>
+         <a href="{{ url_for('about') }}">About-us</a>
+          <br>
+         <a href="{{ url_for('contact') }}">Contact-us</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+    <style>
+
+    h1 {
+    margin: 20px 0;
+    text-align: center;
+}
+     p{
+      margin:20px;
+      text-align:center;
+     }
+     footer{
+      margin:20px;
+      text-align:center;
+     }
+
+           nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hotel Reservation</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('booknow') }}">Booknow</a>
+        <a href="{{ url_for('viewbooking') }}">viewbooking</a>
+        <a href="{{ url_for('login') }}">login</a>
+    </nav>
+    <h1>Thank You</h1>
+    <p>Thank you for contacting us, {{ name }}!</p>
+
+    <footer>
+        &copy; 2023 Nursery Trees. All rights reserved.
+    </footer>
+</body>
+</html>
